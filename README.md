@@ -13,14 +13,14 @@
 
 ### 🧰 Используемые технологии и инструменты:
 
-<p align="left">
-<a href="https://www.jetbrains.com/idea/"><img src="picture/Intelij_IDEA.svg" width="50" height="50"  alt="IDEA" title="IntelliJ IDEA"/></a>
-<a href="https://www.java.com/"><img src="picture/Java.svg" width="50" height="50" alt="Java" title="Java"/></a>
-<a href="https://github.com/"><img src="picture/GitHub.svg" width="50" height="50" alt="Github" title="GitHub"/></a>
-<a href="https://junit.org/junit5/"><img src="picture/JUnit5.svg" width="50" height="50" alt="JUnit 5" title="JUnit 5"/></a>
-<a href="https://gradle.org/"><img src="picture/Gradle.svg" width="50" height="50" alt="Gradle" title="Gradle"/></a>
-<a href="https://github.com/allure-framework/allure2"><img src="picture/Allure_Report.svg" width="50" height="50" alt="Allure" title="Allure"/></a>
-</p>
+| Java                                                                                                      | IntelliJ Idea                                                                                                                 | GitHub                                                                                                     | JUnit 5                                                                                                           | Gradle                                                                                                     | Jenkins                                                                                                           |
+|:----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------:|
+| <a href="https://www.java.com/"><img alt="Java" height="50" src="picture/Java.svg" width="50"/></a>  | <a id ="tech" href="https://www.jetbrains.com/idea/"><img alt="IDEA" height="50" src="picture/Idea.svg" width="50"/></a> | <a href="https://github.com/"><img alt="Github" height="50" src="picture/GitHub.svg" width="50"/></a> | <a href="https://junit.org/junit5/"><img alt="JUnit 5" height="50" src="picture/Junit5.svg" width="50"/></a> | <a href="https://gradle.org/"><img alt="Gradle" height="50" src="picture/Gradle.svg" width="50"/></a>  |   <a href="https://www.jenkins.io/"><img alt="Jenkins" height="50" src="picture/Jenkins.svg" width="50"/></a> |
+
+
+| Allure                                                                                                                     |
+|----------------------------------------------------------------------------------------------------------------------------|
+| <a href="https://github.com/allure-framework"><img alt="Allure" height="50" src="picture/Allure.svg" width="50"/></a> |
 
 
 
