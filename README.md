@@ -22,7 +22,7 @@
 <a href="https://github.com/allure-framework/allure2"><img src="picture/Allure_Report.svg" width="50" height="50" alt="Allure" title="Allure"/></a>
 </p>
 
----x`
+
 
 ### 💻 Запуск тестов из терминала 
 
