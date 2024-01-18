@@ -24,14 +24,27 @@
 
 
 
-### 💻 Запуск тестов из терминала 
+### 💻 Запуск тестов из терминала :
 
 `gradle clean test`
 
 ---
 
+### Удаленный запуск тестов через [Jenkins:](https://jenkins.autotests.cloud/job/C27-mateenkov-General-Api/)
 
-### 📊 Отчет о результатах прохождения авто-тестов в Allure Report 
+Запустить авто-тесты можно по кнопке ```Build with parameters```
 
-![img.png](screen/img.png)
-![img_1.png](screen/img_1.png)
+![img.png](notifications/startbuild.png)
+
+### Allure-отчетность:
+
+По кнопке со значком ![img.png](notifications/iconAllure.png) Allure можно увидеть всю отчетность:
+
+![img.png](notifications/owerViewAllure.png)
+![img.png](notifications/AllureReport.png)
+
+### Отчетность в Telegram:
+
+После прохождения всех тестов приходит уведомление в Telegram с небольшим отчетом
+
+![img_1.png](notifications/telegramReport.png)
