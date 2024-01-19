@@ -47,4 +47,4 @@
 
 После прохождения всех тестов приходит уведомление в Telegram с небольшим отчетом
 
-![img_1.png](notifications/telegramReport.png)
+![img.png](picture/telegramReporting.png)
