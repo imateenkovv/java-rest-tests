@@ -2,6 +2,7 @@ package tests;
 
 import common.models.register.RegisterRequestModel;
 import common.models.register.RegisterResponseModel;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -17,6 +18,7 @@ import static testData.RegisterTestData.*;
 public class RegisterSuccessfulTest {
 
     @Test
+    @DisplayName("Успешная регистрация")
     void registerSuccessfulTest(){
         RegisterRequestModel registerBody = new RegisterRequestModel();
         registerBody.setEmail(REGISTER_EMAIL_SUCCESS);

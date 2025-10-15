@@ -1,6 +1,7 @@
 package tests;
 
 import io.restassured.response.Response;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
@@ -18,6 +19,7 @@ import static testData.SingleUserTestData.*;
 public class SingleUserTest {
 
     @Test
+    @DisplayName("Получение одного пользователя")
     void singleUserTest() {
 
         Response response = given(singleUserRequestSpec)

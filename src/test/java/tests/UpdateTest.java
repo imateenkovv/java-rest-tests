@@ -2,6 +2,7 @@ package tests;
 
 import common.models.update.UpdateRequestModel;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -17,6 +18,7 @@ import static testData.UpdateTestData.*;
 public class UpdateTest {
 
     @Test
+    @DisplayName("Изменение пользователя")
     void updateTest(){
         UpdateRequestModel updateBody = new UpdateRequestModel();
         updateBody.setName(UPDATE_NAME);

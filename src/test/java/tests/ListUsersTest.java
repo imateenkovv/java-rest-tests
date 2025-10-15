@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static common.endpoints.ConstantEndpoints.LIST_USERS;
@@ -17,6 +18,7 @@ import static testData.ListUsersTestData.*;
 public class ListUsersTest {
 
     @Test
+    @DisplayName("Получение списка пользователей")
     void listUsersTest() {
 
         given(listUsersRequestSpec)
