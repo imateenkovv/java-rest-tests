@@ -1,7 +1,7 @@
 package tests;
 
-import models.login.LoginRequestModel;
-import models.login.LoginResponseModel;
+import common.models.login.LoginRequestModel;
+import common.models.login.LoginResponseModel;
 import org.junit.jupiter.api.Test;
 
 import static specs.LoginSpec.loginRequestSpec;

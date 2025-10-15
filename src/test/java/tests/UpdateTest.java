@@ -1,7 +1,7 @@
 package tests;
 
+import common.models.update.UpdateRequestModel;
 import io.restassured.response.Response;
-import models.update.UpdateRequestModel;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;

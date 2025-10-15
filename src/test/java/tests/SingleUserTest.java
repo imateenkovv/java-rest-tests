@@ -3,7 +3,8 @@ package tests;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-import static helpers.ConstantsEndpoints.SINGLE_USER;
+
+import static common.endpoints.ConstantEndpoints.SINGLE_USER;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static specs.SingleUserSpec.singleUserRequestSpec;

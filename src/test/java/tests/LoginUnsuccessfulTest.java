@@ -1,10 +1,9 @@
 package tests;
 
-import models.login.LoginResponseModel;
-import models.login.LoginUnSuccessModel;
+import common.models.login.LoginResponseModel;
+import common.models.login.LoginUnSuccessModel;
 import org.junit.jupiter.api.Test;
 
-import static helpers.ConstantsEndpoints.LOGIN_SUCCESS;
 import static specs.LoginSpec.loginRequestSpec;
 import static specs.LoginSpec.loginUnSuccessResponseSpec;
 import static testData.LoginTestData.EMAIL_FOR_LOGIN_UNSUCCESS;

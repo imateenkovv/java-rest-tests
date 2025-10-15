@@ -1,4 +1,4 @@
-package models.update;
+package common.models.update;
 
 import lombok.Data;
 
@@ -6,7 +6,8 @@ import lombok.Data;
  * @author mateenkov
  */
 @Data
-public class UpdateRequestModel {
+public class UpdateResponseModel {
     String name;
     String job;
+    String updateAt;
 }

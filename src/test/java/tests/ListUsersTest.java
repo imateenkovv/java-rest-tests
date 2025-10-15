@@ -1,9 +1,8 @@
 package tests;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static helpers.ConstantsEndpoints.LIST_USERS;
+import static common.endpoints.ConstantEndpoints.LIST_USERS;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 import static specs.ListUsersSpec.listUsersRequestSpec;

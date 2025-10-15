@@ -1,4 +1,4 @@
-package models.login;
+package common.models.login;
 
 import lombok.Data;
 

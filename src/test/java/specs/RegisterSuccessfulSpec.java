@@ -5,7 +5,8 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
-import static helpers.ConstantsEndpoints.*;
+import static common.endpoints.ConstantEndpoints.BASE_URL;
+import static common.endpoints.ConstantEndpoints.REGISTER_SUCCESS;
 import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
 import static io.restassured.http.ContentType.JSON;

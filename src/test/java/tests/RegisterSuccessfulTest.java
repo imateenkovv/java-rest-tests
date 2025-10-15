@@ -1,7 +1,7 @@
 package tests;
 
-import models.register.RegisterRequestModel;
-import models.register.RegisterResponseModel;
+import common.models.register.RegisterRequestModel;
+import common.models.register.RegisterResponseModel;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;

@@ -1,4 +1,4 @@
-package models.register;
+package common.models.login;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import lombok.Data;
  * @author mateenkov
  */
 @Data
-public class RegisterRequestModel {
+public class LoginRequestModel {
     String email;
     String password;
 }
