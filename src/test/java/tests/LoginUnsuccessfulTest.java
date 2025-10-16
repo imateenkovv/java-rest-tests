@@ -12,10 +12,6 @@ import static testData.LoginTestData.ERROR_MESSAGE_LOGIN_UNSUCCESS;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author mateenkov
- */
-
 public class LoginUnsuccessfulTest {
 
     @Test

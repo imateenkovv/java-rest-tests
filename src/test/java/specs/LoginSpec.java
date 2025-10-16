@@ -12,10 +12,6 @@ import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
 import static io.restassured.http.ContentType.JSON;
 
-/**
- * @author mateenkov
- */
-
 public class LoginSpec {
     public static RequestSpecification loginRequestSpec = with()
             .filter(withCustomTemplates())

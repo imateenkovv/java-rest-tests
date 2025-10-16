@@ -11,10 +11,6 @@ import static testData.LoginTestData.*;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author mateenkov
- */
-
 public class LoginSuccessfulTest {
 
     @Test

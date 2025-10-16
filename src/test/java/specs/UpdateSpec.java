@@ -11,10 +11,6 @@ import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
 import static io.restassured.http.ContentType.JSON;
 
-/**
- * @author mateenkov
- */
-
 public class UpdateSpec {
     public static RequestSpecification updateRequestSpec = with()
             .filter(withCustomTemplates())

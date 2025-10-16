@@ -1,9 +1,5 @@
 package testData;
 
-/**
- * @author mateenkov
- */
-
 public class SingleUserTestData {
 
     //Response

@@ -9,10 +9,6 @@ import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
 import static io.restassured.http.ContentType.JSON;
 
-/**
- * @author mateenkov
- */
-
 public class ListUsersSpec {
 
     public static RequestSpecification listUsersRequestSpec = with()

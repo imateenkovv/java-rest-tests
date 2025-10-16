@@ -11,10 +11,6 @@ import static specs.RegisterSuccessfulSpec.registerSuccessfulRequestSpec;
 import static specs.RegisterSuccessfulSpec.registerSuccessfulResponseSpec;
 import static testData.RegisterTestData.*;
 
-/**
- * @author mateenkov
- */
-
 public class RegisterSuccessfulTest {
 
     @Test

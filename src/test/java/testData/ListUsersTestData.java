@@ -1,9 +1,5 @@
 package testData;
 
-/**
- * @author mateenkov
- */
-
 public class ListUsersTestData {
 
     public final static String SUPPORT_URL = "support.url";

@@ -12,10 +12,6 @@ import static specs.SingleUserSpec.singleUserRequestSpec;
 import static specs.SingleUserSpec.singleUserResponseSpec;
 import static testData.SingleUserTestData.*;
 
-/**
- * @author mateenkov
- */
-
 public class SingleUserTest {
 
     @Test

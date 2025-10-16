@@ -1,9 +1,5 @@
 package testData;
 
-/**
- * @author mateenkov
- */
-
 public class UpdateTestData {
     //Request
     public static final String UPDATE_NAME = "morpheus";

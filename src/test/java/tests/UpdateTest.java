@@ -11,10 +11,6 @@ import static specs.UpdateSpec.updateRequestSpec;
 import static specs.UpdateSpec.updateResponseSpec;
 import static testData.UpdateTestData.*;
 
-/**
- * @author mateenkov
- */
-
 public class UpdateTest {
 
     @Test

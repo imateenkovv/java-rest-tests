@@ -10,11 +10,6 @@ import static specs.ListUsersSpec.listUsersRequestSpec;
 import static specs.ListUsersSpec.listUsersResponseSpec;
 import static testData.ListUsersTestData.*;
 
-
-/**
- * @author mateenkov
- */
-
 public class ListUsersTest {
 
     @Test

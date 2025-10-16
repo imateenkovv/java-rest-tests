@@ -1,9 +1,5 @@
 package testData;
 
-/**
- * @author mateenkov
- */
-
 public class LoginTestData {
 
     public static final String EMAIL_FOR_LOGIN_SUCCESS = "eve.holt@reqres.in";

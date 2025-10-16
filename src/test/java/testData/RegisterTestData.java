@@ -1,9 +1,5 @@
 package testData;
 
-/**
- * @author mateenkov
- */
-
 public class RegisterTestData {
     //Request
     public final static String REGISTER_EMAIL_SUCCESS = "eve.holt@reqres.in";
