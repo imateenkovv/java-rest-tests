@@ -2,24 +2,9 @@ package specs;
 
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
-import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
-import static common.endpoints.ConstantEndpoints.BASE_URL;
-import static common.endpoints.ConstantEndpoints.UPDATE;
-import static helpers.CustomAllureListener.withCustomTemplates;
-import static io.restassured.RestAssured.with;
-import static io.restassured.http.ContentType.JSON;
-
 public class UpdateSpec {
-    public static RequestSpecification updateRequestSpec = with()
-            .filter(withCustomTemplates())
-            .log().method()
-            .log().uri()
-            .log().body()
-            .contentType(JSON)
-            .baseUri(BASE_URL)
-            .basePath(UPDATE);
 
     public static ResponseSpecification updateResponseSpec = new ResponseSpecBuilder()
             .log(LogDetail.STATUS)

@@ -8,4 +8,5 @@ public class ConstantEndpoints {
     public static final String REGISTER_SUCCESS = "/api/register";
     public static final String UPDATE = "/api/users/2";
     public static final String SINGLE_USER = BASE_URL + "/api/users/2";
+    public static final String FREE_API_KEY = "reqres-free-v1";
 }

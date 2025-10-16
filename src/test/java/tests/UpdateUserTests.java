@@ -5,31 +5,32 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static common.endpoints.ConstantEndpoints.UPDATE;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static specs.UpdateSpec.updateRequestSpec;
 import static specs.UpdateSpec.updateResponseSpec;
-import static testData.UpdateTestData.*;
+import static testData.UpdateTestData.UPDATE_JOB;
+import static testData.UpdateTestData.UPDATE_NAME;
 
-public class UpdateTest {
+@DisplayName("Тесты на изменение пользователя")
+public class UpdateUserTests extends AbstractTest {
 
     @Test
     @DisplayName("Изменение пользователя")
-    void updateTest(){
+    void updateTest() {
         UpdateRequestModel updateBody = new UpdateRequestModel();
         updateBody.setName(UPDATE_NAME);
         updateBody.setJob(UPDATE_JOB);
 
-        Response response = given(updateRequestSpec)
+        Response response = given(requestSpec)
                 .body(updateBody)
                 .when()
-                .put()
+                .put(UPDATE)
                 .then()
                 .spec(updateResponseSpec)
                 .extract().response();
 
         assertEquals(UPDATE_NAME, response.jsonPath().getString("name"));
         assertEquals(UPDATE_JOB, response.jsonPath().getString("job"));
-
     }
 }

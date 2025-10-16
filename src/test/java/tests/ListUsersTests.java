@@ -6,17 +6,20 @@ import org.junit.jupiter.api.Test;
 import static common.endpoints.ConstantEndpoints.LIST_USERS;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
-import static specs.ListUsersSpec.listUsersRequestSpec;
 import static specs.ListUsersSpec.listUsersResponseSpec;
-import static testData.ListUsersTestData.*;
+import static testData.ListUsersTestData.SUPPORT_TEXT;
+import static testData.ListUsersTestData.SUPPORT_TEXT_VALUE;
+import static testData.ListUsersTestData.SUPPORT_URL;
+import static testData.ListUsersTestData.SUPPORT_URL_VALUE;
 
-public class ListUsersTest {
+@DisplayName("Тесты на проверку получения списка пользователей")
+public class ListUsersTests extends AbstractTest {
 
     @Test
     @DisplayName("Получение списка пользователей")
     void listUsersTest() {
 
-        given(listUsersRequestSpec)
+        given(requestSpec)
                 .when()
                 .get(LIST_USERS)
                 .then()
