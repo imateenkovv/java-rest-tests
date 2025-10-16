@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import static common.endpoints.ConstantEndpoints.REGISTER_SUCCESS;
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static specs.RegisterSuccessfulSpec.registerSuccessfulResponseSpec;
 import static testData.RegisterTestData.REGISTER_EMAIL_SUCCESS;
 import static testData.RegisterTestData.REGISTER_ID;
 import static testData.RegisterTestData.REGISTER_PASSWORD_SUCCESS;
@@ -29,7 +29,8 @@ public class RegisterTests extends AbstractTest {
                 .when()
                 .post(REGISTER_SUCCESS)
                 .then()
-                .spec(registerSuccessfulResponseSpec)
+                .spec(responseSpec)
+                .statusCode(SC_OK)
                 .extract().as(RegisterResponseModel.class);
 
         assertEquals(REGISTER_TOKEN, response.getToken());

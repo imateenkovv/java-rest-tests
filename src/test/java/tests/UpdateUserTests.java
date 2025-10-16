@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import static common.endpoints.ConstantEndpoints.UPDATE;
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static specs.UpdateSpec.updateResponseSpec;
 import static testData.UpdateTestData.UPDATE_JOB;
 import static testData.UpdateTestData.UPDATE_NAME;
 
@@ -27,7 +27,8 @@ public class UpdateUserTests extends AbstractTest {
                 .when()
                 .put(UPDATE)
                 .then()
-                .spec(updateResponseSpec)
+                .spec(responseSpec)
+                .statusCode(SC_OK)
                 .extract().response();
 
         assertEquals(UPDATE_NAME, response.jsonPath().getString("name"));

@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static common.endpoints.ConstantEndpoints.LIST_USERS;
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.is;
-import static specs.ListUsersSpec.listUsersResponseSpec;
 import static testData.ListUsersTestData.SUPPORT_TEXT;
 import static testData.ListUsersTestData.SUPPORT_TEXT_VALUE;
 import static testData.ListUsersTestData.SUPPORT_URL;
@@ -23,7 +23,8 @@ public class ListUsersTests extends AbstractTest {
                 .when()
                 .get(LIST_USERS)
                 .then()
-                .spec(listUsersResponseSpec)
+                .spec(responseSpec)
+                .statusCode(SC_OK)
                 .body(SUPPORT_URL, is(SUPPORT_URL_VALUE))
                 .body(SUPPORT_TEXT, is(SUPPORT_TEXT_VALUE));
     }

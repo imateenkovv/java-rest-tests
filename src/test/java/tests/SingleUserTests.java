@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import static common.endpoints.ConstantEndpoints.SINGLE_USER;
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static specs.SingleUserSpec.singleUserResponseSpec;
 import static testData.SingleUserTestData.SINGLE_USER_AVATAR;
 import static testData.SingleUserTestData.SINGLE_USER_EMAIL;
 import static testData.SingleUserTestData.SINGLE_USER_FIRST_NAME;
@@ -25,7 +25,8 @@ public class SingleUserTests extends AbstractTest {
                 .when()
                 .get(SINGLE_USER)
                 .then()
-                .spec(singleUserResponseSpec)
+                .spec(responseSpec)
+                .statusCode(SC_OK)
                 .extract().response();
 
         assertEquals(SINGLE_USER_ID, response.jsonPath().getString("data.id"));

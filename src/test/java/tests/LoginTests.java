@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 
 import static common.endpoints.ConstantEndpoints.LOGIN_SUCCESS;
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static specs.LoginSpec.loginResponseSpec;
-import static specs.LoginSpec.loginUnSuccessResponseSpec;
 import static testData.LoginTestData.EMAIL_FOR_LOGIN_SUCCESS;
 import static testData.LoginTestData.EMAIL_FOR_LOGIN_UNSUCCESS;
 import static testData.LoginTestData.ERROR_MESSAGE_LOGIN_UNSUCCESS;
@@ -32,7 +32,8 @@ public class LoginTests extends AbstractTest {
                 .when()
                 .post(LOGIN_SUCCESS)
                 .then()
-                .spec(loginResponseSpec)
+                .spec(responseSpec)
+                .statusCode(SC_OK)
                 .extract().as(LoginResponseModel.class);
 
         assertEquals(TOKEN_FOR_LOGIN_SUCCESS, response.getToken());
@@ -49,7 +50,8 @@ public class LoginTests extends AbstractTest {
                 .when()
                 .post(LOGIN_SUCCESS)
                 .then()
-                .spec(loginUnSuccessResponseSpec)
+                .spec(responseSpec)
+                .statusCode(SC_BAD_REQUEST)
                 .extract().as(LoginResponseModel.class);
 
         assertEquals(ERROR_MESSAGE_LOGIN_UNSUCCESS, response.getError());
