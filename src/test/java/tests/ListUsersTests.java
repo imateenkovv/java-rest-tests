@@ -3,7 +3,7 @@ package tests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static common.api.ApiAllRequests.getListUsers;
+import static common.api.ApiAllRequests.getListUsersRequest;
 import static common.specs.Spec.specRequest;
 import static org.apache.http.HttpStatus.SC_OK;
 
@@ -14,7 +14,6 @@ public class ListUsersTests {
     @Test
     @DisplayName("Получение списка пользователей")
     void listUsersTest() {
-        getListUsers(specRequest).checkStatusCode(SC_OK);
-
+        getListUsersRequest(specRequest).checkStatusCode(SC_OK);
     }
 }

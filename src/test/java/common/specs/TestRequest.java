@@ -16,8 +16,9 @@ public class TestRequest {
     public TestRequest(FilterableRequestSpecification requestSpec) {
         this.spec = given()
                 .header("x-api-key", "reqres-free-v1")
-                .spec(requestSpec)
-                .log().all();
+                .spec(requestSpec);
+//                .log().all();
+        //todo - надо это логирование вообще тут или нет
     }
 
     public TestRequest pathParameter(String nameParam, Object valueParam) {

@@ -1,11 +1,11 @@
 package tests;
 
-import io.restassured.response.Response;
+import common.models.user.UserInfoResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static common.endpoints.ConstantEndpoints.SINGLE_USER;
-import static io.restassured.RestAssured.given;
+import static common.api.ApiAllRequests.getSingleUserRequest;
+import static common.specs.Spec.specRequest;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static testData.SingleUserTestData.SINGLE_USER_AVATAR;
@@ -21,18 +21,12 @@ public class SingleUserTests extends AbstractTest {
     @DisplayName("Получение одного пользователя")
     void singleUserTest() {
 
-        Response response = given(requestSpec)
-                .when()
-                .get(SINGLE_USER)
-                .then()
-                .spec(responseSpec)
-                .statusCode(SC_OK)
-                .extract().response();
+        UserInfoResponseModel response = getSingleUserRequest(specRequest).checkStatusCode(SC_OK).successBody();
 
-        assertEquals(SINGLE_USER_ID, response.jsonPath().getString("data.id"));
-        assertEquals(SINGLE_USER_EMAIL, response.jsonPath().getString("data.email"));
-        assertEquals(SINGLE_USER_FIRST_NAME, response.jsonPath().getString("data.first_name"));
-        assertEquals(SINGLE_USER_LAST_NAME, response.jsonPath().getString("data.last_name"));
-        assertEquals(SINGLE_USER_AVATAR, response.jsonPath().getString("data.avatar"));
+        assertEquals(SINGLE_USER_ID, response.getData().getId());
+        assertEquals(SINGLE_USER_EMAIL, response.getData().getEmail());
+        assertEquals(SINGLE_USER_FIRST_NAME, response.getData().getFirst_name());
+        assertEquals(SINGLE_USER_LAST_NAME, response.getData().getLast_name());
+        assertEquals(SINGLE_USER_AVATAR, response.getData().getAvatar());
     }
 }

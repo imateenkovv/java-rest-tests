@@ -5,8 +5,8 @@ import common.models.register.RegisterResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static common.endpoints.ConstantEndpoints.REGISTER_SUCCESS;
-import static io.restassured.RestAssured.given;
+import static common.api.ApiAllRequests.registerUserRequest;
+import static common.specs.Spec.specRequest;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static testData.RegisterTestData.REGISTER_EMAIL_SUCCESS;
@@ -20,18 +20,11 @@ public class RegisterTests extends AbstractTest {
     @Test
     @DisplayName("Успешная регистрация")
     void registerSuccessfulTest() {
-        RegisterRequestModel registerBody = new RegisterRequestModel();
-        registerBody.setEmail(REGISTER_EMAIL_SUCCESS);
-        registerBody.setPassword(REGISTER_PASSWORD_SUCCESS);
+        RegisterRequestModel registerBody = new RegisterRequestModel()
+                .setEmail(REGISTER_EMAIL_SUCCESS)
+                .setPassword(REGISTER_PASSWORD_SUCCESS);
 
-        RegisterResponseModel response = given(requestSpec)
-                .body(registerBody)
-                .when()
-                .post(REGISTER_SUCCESS)
-                .then()
-                .spec(responseSpec)
-                .statusCode(SC_OK)
-                .extract().as(RegisterResponseModel.class);
+        RegisterResponseModel response = registerUserRequest(registerBody, specRequest).checkStatusCode(SC_OK).successBody();
 
         assertEquals(REGISTER_TOKEN, response.getToken());
         assertEquals(REGISTER_ID, response.getId());

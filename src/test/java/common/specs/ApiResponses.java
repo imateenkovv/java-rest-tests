@@ -89,7 +89,7 @@ public class ApiResponses<SUCCESS_DTO, ERROR_DTO> {
         return successBody;
     }
 
-    public ERROR_DTO getErrorBody() {
+    public ERROR_DTO errorBody() {
         assertThat("HTTP response status code", statusCode,
                 is(both(greaterThanOrEqualTo(400)).and(lessThanOrEqualTo(599))));
         return errorBody;

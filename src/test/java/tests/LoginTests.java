@@ -1,13 +1,13 @@
 package tests;
 
+import common.models.login.LoginErrorResponseModel;
 import common.models.login.LoginRequestModel;
 import common.models.login.LoginResponseModel;
-import common.models.login.LoginUnSuccessModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static common.endpoints.ConstantEndpoints.LOGIN_SUCCESS;
-import static io.restassured.RestAssured.given;
+import static common.api.ApiAllRequests.loginSuccessRequest;
+import static common.specs.Spec.specRequest;
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,18 +23,11 @@ public class LoginTests extends AbstractTest {
     @Test
     @DisplayName("Успешный логин")
     void loginSuccessfulTest() {
-        LoginRequestModel authBody = new LoginRequestModel();
-        authBody.setEmail(EMAIL_FOR_LOGIN_SUCCESS);
-        authBody.setPassword(PASSWORD_FOR_LOGIN_SUCCESS);
+        LoginRequestModel authBody = new LoginRequestModel()
+                .setEmail(EMAIL_FOR_LOGIN_SUCCESS)
+                .setPassword(PASSWORD_FOR_LOGIN_SUCCESS);
 
-        LoginResponseModel response = given(requestSpec)
-                .body(authBody)
-                .when()
-                .post(LOGIN_SUCCESS)
-                .then()
-                .spec(responseSpec)
-                .statusCode(SC_OK)
-                .extract().as(LoginResponseModel.class);
+        LoginResponseModel response = loginSuccessRequest(authBody, specRequest).checkStatusCode(SC_OK).successBody();
 
         assertEquals(TOKEN_FOR_LOGIN_SUCCESS, response.getToken());
     }
@@ -42,17 +35,9 @@ public class LoginTests extends AbstractTest {
     @Test
     @DisplayName("Неуспешный логин")
     void loginUnsuccessfulTest() {
-        LoginUnSuccessModel authBody = new LoginUnSuccessModel();
-        authBody.setEmail(EMAIL_FOR_LOGIN_UNSUCCESS);
+        LoginRequestModel authBody = new LoginRequestModel().setEmail(EMAIL_FOR_LOGIN_UNSUCCESS);
 
-        LoginResponseModel response = given(requestSpec)
-                .body(authBody)
-                .when()
-                .post(LOGIN_SUCCESS)
-                .then()
-                .spec(responseSpec)
-                .statusCode(SC_BAD_REQUEST)
-                .extract().as(LoginResponseModel.class);
+        LoginErrorResponseModel response = loginSuccessRequest(authBody, specRequest).checkStatusCode(SC_BAD_REQUEST).errorBody();
 
         assertEquals(ERROR_MESSAGE_LOGIN_UNSUCCESS, response.getError());
     }
