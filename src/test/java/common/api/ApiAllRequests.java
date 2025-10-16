@@ -6,6 +6,7 @@ import common.models.login.LoginResponseModel;
 import common.models.register.RegisterRequestModel;
 import common.models.register.RegisterResponseModel;
 import common.models.update.UpdateRequestModel;
+import common.models.user.ListUsers;
 import common.models.user.UpdateUserResponseModel;
 import common.models.user.UserInfoResponseModel;
 import common.specs.ApiResponses;
@@ -16,12 +17,12 @@ import static common.endpoints.ConstantEndpoints.BASE_URL;
 
 public class ApiAllRequests {
 
-    public static ApiResponses<Void, Void> getListUsersRequest(FilterableRequestSpecification requestSpec) {
+    public static ApiResponses<ListUsers, Void> getListUsersRequest(FilterableRequestSpecification requestSpec) {
         return new ApiResponses<>(
                 new TestRequest(requestSpec)
                         .baseUri(BASE_URL)
                         .get("/api/users?page=2"),
-                Void.class, Void.class);
+                ListUsers.class, Void.class);
     }
 
     public static ApiResponses<LoginResponseModel, LoginErrorResponseModel> loginSuccessRequest(LoginRequestModel requestBody,

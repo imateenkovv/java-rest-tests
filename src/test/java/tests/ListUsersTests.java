@@ -1,5 +1,6 @@
 package tests;
 
+import common.models.user.ListUsers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +15,6 @@ public class ListUsersTests {
     @Test
     @DisplayName("Получение списка пользователей")
     void listUsersTest() {
-        getListUsersRequest(specRequest).checkStatusCode(SC_OK);
+        ListUsers response = getListUsersRequest(specRequest).checkStatusCode(SC_OK).successBody();
     }
 }
