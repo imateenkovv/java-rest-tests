@@ -54,7 +54,7 @@ public class ApiAllRequests {
                 UserInfoResponseModel.class, Void.class);
     }
 
-    public static ApiResponses<UpdateUserResponseModel, Void> getSingleUserRequest(UpdateRequestModel requestBody,
+    public static ApiResponses<UpdateUserResponseModel, Void> putSingleUserRequest(UpdateRequestModel requestBody,
                                                                                    FilterableRequestSpecification requestSpec) {
         return new ApiResponses<>(
                 new TestRequest(requestSpec)
