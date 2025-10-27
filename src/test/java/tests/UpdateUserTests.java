@@ -1,11 +1,11 @@
 package tests;
 
+import common.api.ApiAllRequests;
 import common.models.update.UpdateRequestModel;
 import common.models.user.UpdateUserResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static common.api.ApiAllRequests.getSingleUserRequest;
 import static common.specs.Spec.specRequest;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,7 +22,7 @@ public class UpdateUserTests extends AbstractTest {
                 .setName(UPDATE_NAME)
                 .setJob(UPDATE_JOB);
 
-        UpdateUserResponseModel response = getSingleUserRequest(updateBody, specRequest).checkStatusCode(SC_OK).successBody();
+        UpdateUserResponseModel response = ApiAllRequests.putSingleUserRequest(updateBody, specRequest).checkStatusCode(SC_OK).successBody();
 
         assertEquals(updateBody.getName(), response.getName());
         assertEquals(updateBody.getJob(), response.getJob());
