@@ -29,4 +29,30 @@ public class RegisterTests extends AbstractTest {
         assertEquals(REGISTER_TOKEN, response.getToken());
         assertEquals(REGISTER_ID, response.getId());
     }
+
+    @Test
+    @DisplayName("Попытка регистрации пользователя без email")
+    void registerWithoutEmailTest() {
+        RegisterRequestModel registerBody = new RegisterRequestModel()
+                .setPassword(REGISTER_PASSWORD_SUCCESS);
+
+        RegisterResponseModel response = registerUserRequest(registerBody, specRequest).checkStatusCode(SC_OK).errorBody();
+
+        assertEquals(REGISTER_TOKEN, response.getToken());
+        assertEquals(REGISTER_ID, response.getId());
+    }
+
+    @Test
+    @DisplayName("Попытка регистрации пользователя без password")
+    void registerWithoutPasswordTest() {
+        RegisterRequestModel registerBody = new RegisterRequestModel()
+                .setEmail(REGISTER_EMAIL_SUCCESS);
+
+        RegisterResponseModel response = registerUserRequest(registerBody, specRequest).checkStatusCode(SC_OK).successBody();
+
+        assertEquals(REGISTER_TOKEN, response.getToken());
+        assertEquals(REGISTER_ID, response.getId());
+    }
+
+
 }

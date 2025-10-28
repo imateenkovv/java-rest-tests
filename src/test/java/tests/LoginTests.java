@@ -13,7 +13,6 @@ import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static testData.LoginTestData.EMAIL_FOR_LOGIN_SUCCESS;
 import static testData.LoginTestData.EMAIL_FOR_LOGIN_UNSUCCESS;
-import static testData.LoginTestData.ERROR_MESSAGE_LOGIN_UNSUCCESS;
 import static testData.LoginTestData.PASSWORD_FOR_LOGIN_SUCCESS;
 import static testData.LoginTestData.TOKEN_FOR_LOGIN_SUCCESS;
 
@@ -28,17 +27,22 @@ public class LoginTests extends AbstractTest {
                 .setPassword(PASSWORD_FOR_LOGIN_SUCCESS);
 
         LoginResponseModel response = loginSuccessRequest(authBody, specRequest).checkStatusCode(SC_OK).successBody();
-
         assertEquals(TOKEN_FOR_LOGIN_SUCCESS, response.getToken());
     }
 
     @Test
-    @DisplayName("Неуспешный логин")
-    void loginUnsuccessfulTest() {
+    @DisplayName("Попытка логина без пароля ")
+    void loginWithoutPasswordTest() {
         LoginRequestModel authBody = new LoginRequestModel().setEmail(EMAIL_FOR_LOGIN_UNSUCCESS);
-
         LoginErrorResponseModel response = loginSuccessRequest(authBody, specRequest).checkStatusCode(SC_BAD_REQUEST).errorBody();
+        assertEquals("Missing password", response.getError());
+    }
 
-        assertEquals(ERROR_MESSAGE_LOGIN_UNSUCCESS, response.getError());
+    @Test
+    @DisplayName("Попытка логина без пароля ")
+    void loginWithoutEmailTest() {
+        LoginRequestModel authBody = new LoginRequestModel().setPassword(PASSWORD_FOR_LOGIN_SUCCESS);
+        LoginErrorResponseModel response = loginSuccessRequest(authBody, specRequest).checkStatusCode(SC_BAD_REQUEST).errorBody();
+        assertEquals("Missing email or username", response.getError());
     }
 }

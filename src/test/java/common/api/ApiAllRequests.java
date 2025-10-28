@@ -63,5 +63,4 @@ public class ApiAllRequests {
                         .put("/api/users/2"),
                 UpdateUserResponseModel.class, Void.class);
     }
-
 }
