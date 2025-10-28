@@ -28,8 +28,8 @@ java-rest-tests/
 │   ├── java
 │       ├── checkers        # Классы для проверок
 │       ├── common          # Логика обработки запросов/ответов и ошибок
-│       ├── helpers         # 
-│       ├── testData        # Allure listeners
+│       ├── helpers         # Allure listeners
+│       ├── testData        # Тестовые данные 
 │       ├── tests           # Тестсьюты
 │   ├── resources
 └── README.md
