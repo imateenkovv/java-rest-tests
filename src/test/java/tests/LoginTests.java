@@ -1,6 +1,6 @@
 package tests;
 
-import common.models.login.LoginErrorResponseModel;
+import common.models.errors.ErrorResponseModel;
 import common.models.login.LoginRequestModel;
 import common.models.login.LoginResponseModel;
 import org.junit.jupiter.api.DisplayName;
@@ -34,7 +34,7 @@ public class LoginTests extends AbstractTest {
     @DisplayName("Попытка логина без пароля ")
     void loginWithoutPasswordTest() {
         LoginRequestModel authBody = new LoginRequestModel().setEmail(EMAIL_FOR_LOGIN_UNSUCCESS);
-        LoginErrorResponseModel response = loginSuccessRequest(authBody, specRequest).checkStatusCode(SC_BAD_REQUEST).errorBody();
+        ErrorResponseModel response = loginSuccessRequest(authBody, specRequest).checkStatusCode(SC_BAD_REQUEST).errorBody();
         assertEquals("Missing password", response.getError());
     }
 
@@ -42,7 +42,7 @@ public class LoginTests extends AbstractTest {
     @DisplayName("Попытка логина без пароля ")
     void loginWithoutEmailTest() {
         LoginRequestModel authBody = new LoginRequestModel().setPassword(PASSWORD_FOR_LOGIN_SUCCESS);
-        LoginErrorResponseModel response = loginSuccessRequest(authBody, specRequest).checkStatusCode(SC_BAD_REQUEST).errorBody();
+        ErrorResponseModel response = loginSuccessRequest(authBody, specRequest).checkStatusCode(SC_BAD_REQUEST).errorBody();
         assertEquals("Missing email or username", response.getError());
     }
 }

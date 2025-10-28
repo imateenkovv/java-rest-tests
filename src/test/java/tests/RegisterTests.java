@@ -1,5 +1,6 @@
 package tests;
 
+import common.models.errors.ErrorResponseModel;
 import common.models.register.RegisterRequestModel;
 import common.models.register.RegisterResponseModel;
 import org.junit.jupiter.api.DisplayName;
@@ -7,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static common.api.ApiAllRequests.registerUserRequest;
 import static common.specs.Spec.specRequest;
+import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static testData.RegisterTestData.REGISTER_EMAIL_SUCCESS;
@@ -36,10 +38,8 @@ public class RegisterTests extends AbstractTest {
         RegisterRequestModel registerBody = new RegisterRequestModel()
                 .setPassword(REGISTER_PASSWORD_SUCCESS);
 
-        RegisterResponseModel response = registerUserRequest(registerBody, specRequest).checkStatusCode(SC_OK).errorBody();
-
-        assertEquals(REGISTER_TOKEN, response.getToken());
-        assertEquals(REGISTER_ID, response.getId());
+        ErrorResponseModel errorBody = registerUserRequest(registerBody, specRequest).checkStatusCode(SC_BAD_REQUEST).errorBody();
+        assertEquals(errorBody.getError(), "Missing email or username");
     }
 
     @Test
@@ -48,10 +48,8 @@ public class RegisterTests extends AbstractTest {
         RegisterRequestModel registerBody = new RegisterRequestModel()
                 .setEmail(REGISTER_EMAIL_SUCCESS);
 
-        RegisterResponseModel response = registerUserRequest(registerBody, specRequest).checkStatusCode(SC_OK).successBody();
-
-        assertEquals(REGISTER_TOKEN, response.getToken());
-        assertEquals(REGISTER_ID, response.getId());
+        ErrorResponseModel errorBody = registerUserRequest(registerBody, specRequest).checkStatusCode(SC_BAD_REQUEST).errorBody();
+        assertEquals(errorBody.getError(), "Missing password");
     }
 
 

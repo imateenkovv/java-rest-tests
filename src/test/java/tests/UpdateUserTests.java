@@ -22,7 +22,7 @@ public class UpdateUserTests extends AbstractTest {
                 .setName(UPDATE_NAME)
                 .setJob(UPDATE_JOB);
 
-        UpdateUserResponseModel response = ApiAllRequests.putSingleUserRequest(updateBody, specRequest).checkStatusCode(SC_OK).successBody();
+        UpdateUserResponseModel response = ApiAllRequests.putUserRequest(updateBody, specRequest).checkStatusCode(SC_OK).successBody();
 
         assertEquals(updateBody.getName(), response.getName());
         assertEquals(updateBody.getJob(), response.getJob());
