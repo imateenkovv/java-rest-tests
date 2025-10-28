@@ -70,10 +70,8 @@ java-rest-tests/
 
 ## 📈 Пример отчёта Allure
 
-<p align="center">
-  <img src="img/img_1.png" alt="Allure Report 1" width="48%"/>
-  <img src="img/img_2.png" alt="Allure Report 2" width="43%"/>
-</p>
+![отчет](img/img_1.png "Allure Reports")
+![отчет2](img/img_2.png "Allure Reports")
 
 ---
 
